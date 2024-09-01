@@ -1,0 +1,10 @@
+.sticky-header thead th {
+  position: -webkit-sticky;
+  /* For Safari */
+  position: sticky;
+  top: 0;
+  background-color: #f8f9fa;
+  /* Bootstrap's default light color */
+  z-index: 1020;
+  /* Ensure header is above other content */
+}
