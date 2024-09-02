@@ -1,13 +1,16 @@
 // JobTable.js
-import React from 'react'
-import { jobApplications } from './data' // Adjust the path as needed
+import React, { useEffect } from 'react'
 import '../css/list.css'
 
-const JobTable = () => {
+const JobTable = ({ data, setData }) => {
+  useEffect(() => {
+    setData(data)
+  }, [data])
+  console.log(data, 'data')
   return (
     <div
       className="container mt-5 table-responsive"
-      style={{ maxHeight: '500px' }}
+      style={{ maxHeight: '550px' }}
     >
       <table className="table table-striped table-hover table-bordered sticky-header">
         <thead>
@@ -25,16 +28,28 @@ const JobTable = () => {
           </tr>
         </thead>
         <tbody>
-          {jobApplications.map((job) => (
-            <tr key={job.id}>
+          {data?.map((job) => (
+            <tr key={Math.random()}>
               <td>{job.id}</td>
               <td>{job.company}</td>
               <td>{job.title}</td>
               <td>{job.location}</td>
-              <td>{job.applicationDate}</td>
+              <td>
+                {job.applicationDate
+                  ? new Date(job.applicationDate).toLocaleDateString()
+                  : '-'}
+              </td>
               <td>{job.status}</td>
-              <td>{job.interviewDate || '-'}</td>
-              <td>{job.offerDate || '-'}</td>
+              <td>
+                {job.interviewDate
+                  ? new Date(job.interviewDate).toLocaleDateString()
+                  : '-'}
+              </td>
+              <td>
+                {job.offerDate
+                  ? new Date(job.offerDate).toLocaleDateString()
+                  : '-'}
+              </td>
               <td>{job.notes || '-'}</td>
               <td>
                 <button

@@ -1,18 +1,23 @@
 import './App.css'
+import { useState } from 'react'
 //  this is use for add the bootstap styles
-import 'bootstrap/dist/css/bootstrap.min.css'
 // this import use for enabling the javascript functionality  from bootstap element
-import 'bootstrap/dist/js/bootstrap.bundle.min'
 import Header from './componets/Header'
 import NewJobApplication from './componets/NewJobApplication'
 import JobTable from './componets/ApllicationList'
+import { jobApplications } from './componets/data'
+import 'bootstrap/dist/css/bootstrap.min.css' // Import Bootstrap CSS
+import 'bootstrap/dist/js/bootstrap.bundle.min' // Import Bootstrap JS
 
 function App() {
+  const [data, setData] = useState(jobApplications)
+  console.log(window.bootstrap)
+
   return (
     <div className="container">
       <Header />
-      <NewJobApplication />
-      <JobTable />
+      <NewJobApplication data={data} setData={setData} />
+      <JobTable data={data} setData={setData} />
     </div>
   )
 }

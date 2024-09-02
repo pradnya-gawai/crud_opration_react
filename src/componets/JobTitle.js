@@ -1,6 +1,6 @@
 import React from 'react'
 
-function JobTitle(props) {
+function JobTitle({ formData, handleInputChange }) {
   return (
     <div className="mb-3">
       <label htmlFor="jobTitle" className="form-label">
@@ -11,6 +11,9 @@ function JobTitle(props) {
         className="form-control"
         id="jobTitle"
         placeholder="Frontend Developer"
+        value={formData.title}
+        onChange={handleInputChange}
+        name="title"
       />
     </div>
   )

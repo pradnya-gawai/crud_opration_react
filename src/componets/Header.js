@@ -3,9 +3,9 @@ import React from 'react'
 function Header(props) {
   return (
     <>
-      <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light mb-4">
         <div className="container-fluid">
-          <span class="navbar-brand mb-0 h1">Job Application Tracker</span>
+          <span className="navbar-brand mb-0 h1">Job Application Tracker</span>
           <div className="d-flex w-100 justify-content-end">
             <button
               className="btn btn-primary me-2"
